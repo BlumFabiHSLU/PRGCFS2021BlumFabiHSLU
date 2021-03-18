@@ -55,10 +55,8 @@ int main() {
 	printf("Aufgabe 4 erledigt\n");
 //--------------------------------------------------------------------------
 
-//Aufgaeb 5) 
-//	int start5 = 1;
+//Aufgabe 5) 
 	int sum5 = 0;
-//	int end5 = 100;
 	
 	for(int i = 1; i < 11; i++ )
 	{
@@ -72,6 +70,27 @@ int main() {
 		}
 	}
 	printf("\nAufgabe 5 erledigt\n");
+//--------------------------------------------------------------------------	
+
+//Aufgabe 6)
+
+	int sum6 = 0;
+	int end6 = 560;
+	int a = 0;
+	int maxsum6 = 555;
 	
+	for(int k = 0; sum6 < end6; k++ )
+	{
+		sum6 += k;
+		a = k;
+		if(sum6 > maxsum6)
+		{
+		break;
+		}
+	}
+	printf("With max sum %d, the integers from 1 to %d sum to %d\n", maxsum6,  a, sum6);
+	
+	printf("\nAufgabe 6 erledigt\n");
+
 	return 0;
 }

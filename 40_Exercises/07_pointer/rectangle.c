@@ -17,7 +17,7 @@ struct Rectangle {
 	double area;
 	double perimeter;
 };
-
+//funktion wird ein erstes mal deklariert
 double ComputeRectangleArea(struct Rectangle *pRect);
 
 struct Rectangle myRectangle;
@@ -38,6 +38,7 @@ int main(){
 }
 
 
+//deklarierte Funktion wird hier erläutert
 double ComputeRectangleArea(struct Rectangle *pRect){
 	double deltaX = (pRect->topRightCorner.x - pRect->bottomLeftCorner.x);
 	double deltaY = (pRect->topRightCorner.y - pRect->bottomLeftCorner.y);

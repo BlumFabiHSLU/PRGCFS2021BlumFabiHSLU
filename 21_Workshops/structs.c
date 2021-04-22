@@ -10,7 +10,6 @@ struct Student {
 	char firstname[FIRSTNAME_LENGTH];
 	char lastname[LASTNAME_LENGTH];
 	float grades[COUNT_GRADES];
-	float average;
 
 };
 
@@ -22,34 +21,31 @@ struct Student students[NUMBER_STUDENTS] = {
 [4].firstname = "Natasha",	[4].lastname = "Romanoff",	[4].grades = {5.3, 5.2, 5.1, 5.7, 4.9, 5.9},
 };
 
-//Idee: Notenschnitt 
-//Noten aufrufen: Student.grades[i]
 
-int sum = 0;
-int a = 0;
+//Aufgabe 3 Schnitt pro Student
+
+float AlleNotenAddiert = 0;
+
 int main()
 {
 	for(int i = 0; i < NUMBER_STUDENTS; i++)//Schleife um Studenten durchzugehen
 	{
-		for(int j = 0; j < COUNT_GRADES; j++)//Schleife pro Student
-		{
-			sum += Student.grades[j];	
-		}
-		a = sum/COUNT_GRADES;
-		printf("Die Durchschnittsnote von %s ist: %d", Student.firstname[i],a);
+		float sum = 0;
+		float a = 0;
+		
+			for(int j = 0; j < COUNT_GRADES; j++)//Schleife pro Student
+			{
+				AlleNotenAddiert += students[i].grades[j];//für Aufgabe 4 Klassenschnitt
+				sum += students[i].grades[j];
+				a = sum/COUNT_GRADES;	
+			}
+			
+		
+		printf("Die Durchschnittsnote von %s %s ist: %f\n", students[i].firstname,students[i].lastname,a);
 	}
+	float AnzahlNoten = NUMBER_STUDENTS * COUNT_GRADES;
+	float Schnitt = AlleNotenAddiert/AnzahlNoten;
+	printf("Der Klassendurchschnitt ist %f\n", Schnitt);//Ausgabe Aufgabe 4
 return 0;
 }
 
-/*
-int main(int argc, char *argv[] )
-{
-
-
-
-
-
-
-return 0;
-}
-*/

@@ -110,18 +110,6 @@ void ShowMenu(void ){
 			status = SHOWMENU;
 			break;
 	}
-	/*
-	if( menuSelected == 1 ){
-		status = HEATING;
-	} else if( menuSelected == 2 ) {
-		status = MILLING;
-	} else if( menuSelected == 9 ) {
-		status = SHUTDOWN;
-	} else {
-		printf("Invalid selection.\n");
-		status = SHOWMENU;
-	}
-	*/
 }	
 
 

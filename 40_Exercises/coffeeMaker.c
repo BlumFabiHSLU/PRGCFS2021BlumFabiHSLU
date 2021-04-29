@@ -1,38 +1,44 @@
 #include <stdio.h>
 #include <unistd.h>
 
+//Zustandsmaschine
 typedef enum {
 	HEATING = 1,
-	READY,
+	SHOWMENU,
 	MILLING,
 	COFFEEMAKING,
-	CLEARING,
+	CLEANING,
 	SHUTDOWN,
 	ERROR
 } CoffeeMakerStatus;
-cd 
-CoffeeMakerStatus status = HEATING;
-	
-int HeatingDone(void);
 
+
+CoffeeMakerStatus status = HEATING;
+
+//Funktion Prototyp	
+int HeatingDone(void);
+void ShowMenu(void);
 
 int main(void) {
 
 	// endless loop
 	int run = 1;
 	while(run == 1) 
-	{
+	{	
+	
 		
 		switch(status)
 		{
 			case HEATING:
 				if( HeatingDone() )
 				{
-					status = SHUTDOWN;
+					status = SHOWMENU;
 				}
 				break;
 		
-		
+			case SHOWMENU:
+				ShowMenu();
+				break;	
 			// add all cases
 		
 			case SHUTDOWN:
@@ -52,12 +58,36 @@ int main(void) {
 }
 
 
-static int heatingCounter = 0;
-int heatingLimit = 6;
 
+
+
+void ShowMenu(void ){
+	int menuSelected = 0;
+	printf("Select from the following Options:\n");
+	printf("1: re-heat\n");
+	printf("9:shutdown\n");
+	scanf("%d", &menuSelected);
+	if( menuSelected ==1){
+		status = HEATING;
+	} else if( menuSelected == 9) {
+		status = SHUTDOWN;
+	} else {
+		printf("Invalid selection.\n");
+		status = SHOWMENU;
+	}
+
+
+}
+
+
+
+static int heatingCounter = 0;
+int heatingLimit = 6;	//simuliert, wann die Maschine warm ist
+
+// returns 1 if heating done, 0 otherwise.
 int HeatingDone(void){
 	int done = 0;
-	sleep(1);
+	sleep(1);	//für eine Sekunde schlafen
 	printf("#");
 	fflush(stdout);
 	heatingCounter++;

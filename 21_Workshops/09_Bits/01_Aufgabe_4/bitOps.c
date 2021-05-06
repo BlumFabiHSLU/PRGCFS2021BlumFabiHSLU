@@ -1,36 +1,28 @@
 #include <stdio.h>
-#include <bitOps.h>
-
-
+#include "bitOps.h"
 
 
 
 //Implementierung der Funktionen
 void setBitNInByte( unsigned char* data, unsigned char bitN)
 {
-	for(i=0, i<3, i++)
-	{
-		int n;
-		printf("Welches Bit möchten Sie auf 1 setzen?\n");
-		scanf("%d",&n);
-		Eingabe = Eingabe |=(1 << n);
-	}
+	*data = *data | (1 << bitN);	//Oder Operation mit n-tes Bit auf 1
 }
 
 void clearBitNInByte( unsigned char* data, unsigned char bitN)
 {
-
+	*data = *data & (0 << bitN);	//Und Operation mit n-tes Bit auf 0
 }
 
 void toggleBitNInByte( unsigned char* data, unsigned char bitN)
 {
-
+	*data = *data ^ (1 << (bitN-1));	//XOR kehrt den Wert um
 }
 
-unsigned char BitNIsSet(unsigned char data)
+/*unsigned char BitNIsSet(unsigned char data)
 {
 
 }
-
+*/
 
 

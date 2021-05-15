@@ -16,16 +16,27 @@ int main()
 		const int BYTES_IN_LINE = 14;
 		unsigned char lineBuffer[BYTES_IN_LINE];
 		
-		while( fread(lineBuffer,BYTES_IN_LINE, 1, fin))
+		FILE *fp =fopen("TestatFabianBlum.csv", "wb");
+		if(fp != NULL)
 		{
-			printf("time:%lld, ", ((struct Daten *)lineBuffer)->timeStamp);
-			printf("pressure: %d, ", ((struct Daten *)lineBuffer)->pressure);
-			printf("System State: %d, ", ((struct Daten *)lineBuffer)->systemState);
-			printf("Alarm State: %d\n", ((struct Daten *)lineBuffer)->alarmState);
+		
+			while( fread(lineBuffer,BYTES_IN_LINE, 1, fin))
+			{
+				fprintf(fp,"%lld;%d;%d;%d;\n", ((struct Daten *)lineBuffer)->timeStamp,((struct Daten *)lineBuffer)->pressure,((struct Daten *)lineBuffer)->systemState,((struct Daten *)lineBuffer)->alarmState);	
+			}
 		}
-	}
+		
+	fclose(fin);
+	fclose(fp);
+	
+	
+			
+	}	
+	
+	
 	return 0;
 }
+
 
 
 

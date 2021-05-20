@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #ifndef _BITOPS_H_
 #define _BITOPS_H_
 

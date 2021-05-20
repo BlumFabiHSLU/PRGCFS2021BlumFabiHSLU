@@ -7,7 +7,7 @@ struct Daten {
 	char systemState;
 	char alarmState;
 };
-
+// CSV Datei vorgängig erstellt mit gedit TestatFabianBlum.csv
 int main()
 {
 	FILE *fin = fopen("pressureSpike.bin","rb");
@@ -28,11 +28,8 @@ int main()
 		
 	fclose(fin);
 	fclose(fp);
-	
-	
 			
 	}	
-	
 	
 	return 0;
 }

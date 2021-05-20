@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "bitOps.h"
 
-
+unsigned char bitN = 0;
+unsigned char data = 211;
 
 //Implementierung der Funktionen
 void setBitNInByte( unsigned char* data, unsigned char bitN)

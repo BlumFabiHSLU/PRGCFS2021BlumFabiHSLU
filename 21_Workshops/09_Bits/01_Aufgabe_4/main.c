@@ -1,10 +1,10 @@
 #include "bitOps.h"
-
+#include <stdio.h>
 
 unsigned char main(void)
 {	
 	//Anfangszahl
-	data = 211;
+	//data = 211;
 	
 	//n-tes Bit setzen
 	bitN = 2;
